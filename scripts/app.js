@@ -7,7 +7,7 @@ requirejs.config({
     //the paths config could be for a directory.
     baseUrl: "/scripts",
     paths: {
-        /*"MemoryMatrixGame": "com/lumoslabs/games/memoryMatrix/MemoryMatrixGame",    */
+        MemoryMatrixGame: "com/lumoslabs/games/memoryMatrix/MemoryMatrixGame",
         createjs: "libs/createjs-2013.05.14.min"
     },
     shim: {
@@ -18,7 +18,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(
-    function () {
-        var MemoryMatrixGame = new MemoryMatrixGame(d);
+requirejs(["MemoryMatrixGame"],
+    function (MemoryMatrixGame) {
+        new MemoryMatrixGame();
     });
