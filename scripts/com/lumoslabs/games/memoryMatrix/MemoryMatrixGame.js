@@ -1,4 +1,5 @@
-define(function MemoryMatrixGame() {
+define(function () {
+
     // Create enumerable, nonconfigurable properties
     Object.defineProperties(this, {
         gameWidth: {enumerable: true, configurable: false},
@@ -10,10 +11,17 @@ define(function MemoryMatrixGame() {
 
     });
 
+    function MemoryMatrixGame() {
+    }
+
     function initGame() {
         this.gameWidth = 640;
     }
 
-    return MemoryMatrixGame;
+    return MemoryMatrixGame
+
 });
+
+
+
 

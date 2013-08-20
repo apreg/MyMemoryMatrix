@@ -5,7 +5,7 @@ requirejs.config({
     //config is relative to the baseUrl, and
     //never includes a ".js" extension since
     //the paths config could be for a directory.
-    baseUrl: "/scripts",
+    //baseUrl: "/scripts",
     paths: {
         /*"MemoryMatrixGame": "com/lumoslabs/games/memoryMatrix/MemoryMatrixGame",    */
         createjs: "libs/createjs-2013.05.14.min"
@@ -20,5 +20,7 @@ requirejs.config({
 // Start the main app logic.
 requirejs(
     function () {
-        var MemoryMatrixGame = new MemoryMatrixGame(d);
+        var memoryMatrixGame;
+        memoryMatrixGame = new MemoryMatrixGame();
+        console.log(memoryMatrixGame.gameHeight);
     });
