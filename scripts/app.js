@@ -18,11 +18,10 @@ requirejs.config({
 });
 
 // Start the main app logic.
-require(["MemoryMatrixGame"],
-    function (MemoryMatrixGame) {
+require(["MemoryMatrixGame", "createjs"],
+    function (MemoryMatrixGame, createjs) {
         var memoryMatrixGame;
-        memoryMatrixGame = new MemoryMatrixGame();
-        memoryMatrixGame.initGame();
+        memoryMatrixGame = new MemoryMatrixGame(new createjs.Stage(document.getElementById('stage')));
         console.log(memoryMatrixGame.getGameWidth());
 
 
