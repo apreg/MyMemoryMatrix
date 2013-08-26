@@ -9,6 +9,7 @@ requirejs.config({
     paths: {
         "MemoryMatrixGame": "com/lumoslabs/games/memoryMatrix/MemoryMatrixGame",
         createjs: "libs/createjs-2013.05.14.min"
+        //movieClip: "libs/movieclip-0.6.1.min"
     },
     shim: {
         createjs: {
@@ -24,8 +25,7 @@ require(["MemoryMatrixGame", "createjs"],
         var manifest = [
             {src:"/images/playButton.png", id:"playButtonImage"}
         ];
-        //TODO: do something with it!
-        window.loader = new createjs.LoadQueue(false);
+        var loader = new createjs.LoadQueue(false);
         loader.addEventListener("complete", handleComplete);
         loader.loadManifest(manifest, true, "assets");
 
@@ -35,7 +35,7 @@ require(["MemoryMatrixGame", "createjs"],
             var memoryMatrixGame;
             var stage = new createjs.Stage(document.getElementById('stage'));
             stage.enableMouseOver(true);
-            memoryMatrixGame = new MemoryMatrixGame(stage);
+            memoryMatrixGame = new MemoryMatrixGame(loader, stage);
             console.log(memoryMatrixGame.getGameWidth());
         }
 
