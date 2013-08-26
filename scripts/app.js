@@ -20,9 +20,24 @@ requirejs.config({
 // Start the main app logic.
 require(["MemoryMatrixGame", "createjs"],
     function (MemoryMatrixGame, createjs) {
-        var memoryMatrixGame;
-        memoryMatrixGame = new MemoryMatrixGame(new createjs.Stage(document.getElementById('stage')));
-        console.log(memoryMatrixGame.getGameWidth());
+
+        var manifest = [
+            {src:"/images/playButton.png", id:"playButtonImage"}
+        ];
+        //TODO: do something with it!
+        window.loader = new createjs.LoadQueue(false);
+        loader.addEventListener("complete", handleComplete);
+        loader.loadManifest(manifest, true, "assets");
+
+        function handleComplete() {
+            document.getElementById("loader").className = "";
+
+            var memoryMatrixGame;
+            var stage = new createjs.Stage(document.getElementById('stage'));
+            stage.enableMouseOver(true);
+            memoryMatrixGame = new MemoryMatrixGame(stage);
+            console.log(memoryMatrixGame.getGameWidth());
+        }
 
 
     });

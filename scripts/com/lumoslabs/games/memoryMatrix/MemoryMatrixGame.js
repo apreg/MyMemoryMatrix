@@ -15,23 +15,36 @@ define(["createjs"], function () {
     }
 
     MemoryMatrixGame.prototype.initGame = function () {
-        this.gameWidth = 640;
-        this.gameHeight = 480;
+        this.gameWidth = this.stage.canvas.width;
+        this.gameHeight = this.stage.canvas.height;
 
-        var circle = new createjs.Shape();
-        circle.graphics.beginFill("red").drawCircle(0, 0, 40);
-        //Set position of Shape instance.
-        circle.x = circle.y = 50;
-        //Add Shape instance to stage display list.
-        this.stage.addChild(circle);
-        //Update stage will render next frame
-        this.stage.update();
+        var playButtonSpriteSheet = new createjs.SpriteSheet({
+            //images: ["assets/images/playButton.png"],
+            images: [window.loader.getResult("playButtonImage")],
+            frames: {
+                height: 42,
+                width: 113,
+                regX: 0,
+                regY: 0,
+                count: 2},
+            animations: {out: 0, over: 1, down: 1}
+        });
+        var animation = new createjs.BitmapAnimation(playButtonSpriteSheet);
+        animation.x = 200;
+        animation.y = 200;
+        //animation.cursor = "pointer";
+        var helper = new createjs.ButtonHelper(animation, "out", "over", "down");
+        //animation.gotoAndStop("down");
+        this.stage.addChild(animation);
+        createjs.Ticker.setFPS(60);
+        //createjs.Ticker.addEventListener("tick", this.stage);
+        createjs.Ticker.addListener(this.stage);
+    };
 
-    }
 
     MemoryMatrixGame.prototype.getGameWidth = function () {
         return this.gameWidth;
-    }
+    };
 
     return MemoryMatrixGame
 });
