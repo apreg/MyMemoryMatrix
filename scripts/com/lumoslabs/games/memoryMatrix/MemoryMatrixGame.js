@@ -33,12 +33,15 @@ define(["createjs"], function (createjs) {
         var animation = new createjs.BitmapAnimation(playButtonSpriteSheet);
         animation.x = 200;
         animation.y = 200;
+        animation.addEventListener("mousedown", function () {
+            console.log("fakk");
+        });
         //animation.cursor = "pointer";
         var helper = new createjs.ButtonHelper(animation, "up", "over", "down");
         //animation.gotoAndStop("down");
         this.stage.addChild(animation);
 
-        createjs.Ticker.addEventListener("tick", this.stage);
+
         var btn = new createjs.MovieClip(null, null, false, {up: 0, over: 1, down: 2, out: 0}).set({x: 100, y: 100});
         this.stage.addChild(btn);
         var u = new createjs.Bitmap("assets/images/button_0.png");
@@ -46,15 +49,15 @@ define(["createjs"], function (createjs) {
         var d = new createjs.Bitmap("assets/images/button_2.png");
 
         btn.timeline.addTween(
-            createjs.Tween.get(u).wait(1).to({_off:true}),
-            createjs.Tween.get(o).to({_off:true}).wait(1).to({_off:false}).wait(1).to({_off:true}),
-            createjs.Tween.get(d).to({_off:true}).wait(2).to({_off:false})
+            createjs.Tween.get(u).wait(1).to({_off: true}),
+            createjs.Tween.get(o).to({_off: true}).wait(1).to({_off: false}).wait(1).to({_off: true}),
+            createjs.Tween.get(d).to({_off: true}).wait(2).to({_off: false})
         );
 
         var helper2 = new createjs.ButtonHelper(btn);
 
-        createjs.Ticker.setFPS(16);
-
+        createjs.Ticker.addEventListener("tick", this.stage);
+        createjs.Ticker.setFPS(60);
         createjs.Ticker.addListener(this.stage, false);
     };
 

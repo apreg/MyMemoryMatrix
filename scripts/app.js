@@ -34,7 +34,7 @@ require(["MemoryMatrixGame", "createjs"],
 
             var memoryMatrixGame;
             var stage = new createjs.Stage(document.getElementById('stage'));
-            stage.enableMouseOver(true);
+            stage.enableMouseOver(30);
             memoryMatrixGame = new MemoryMatrixGame(loader, stage);
             console.log(memoryMatrixGame.getGameWidth());
         }
