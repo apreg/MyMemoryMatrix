@@ -8,7 +8,11 @@ requirejs.config({
     //baseUrl: "/scripts",
     paths: {
         "MemoryMatrixGame": "com/lumoslabs/games/memoryMatrix/MemoryMatrixGame",
-        createjs: "libs/createjs-2013.05.14.min"
+        createjs: "libs/createjs-2013.05.14.min",
+        util: "com/lumoslabs/utils/Util",
+        //loader: "com/lumoslabs/utils/Loader",
+        StartScreen: "com/lumoslabs/games/memoryMatrix/screens/StartScreen",
+        HelpScreen: "com/lumoslabs/games/memoryMatrix/screens/HelpScreen"
         //movieClip: "libs/movieclip-0.6.1.min"
     },
     shim: {
@@ -19,13 +23,14 @@ requirejs.config({
 });
 
 // Start the main app logic.
-require(["MemoryMatrixGame", "createjs"],
-    function (MemoryMatrixGame, createjs) {
+require(["MemoryMatrixGame", "createjs", "util"],
+    function (MemoryMatrixGame, createjs, util) {
 
+        var loader;
         var manifest = [
-            {src:"/images/playButton.png", id:"playButtonImage"}
+            {src: "/images/playButton.png", id: "playButtonImage"}
         ];
-        var loader = new createjs.LoadQueue(false);
+        loader = new createjs.LoadQueue(false);
         loader.addEventListener("complete", handleComplete);
         loader.loadManifest(manifest, true, "assets");
 
@@ -38,6 +43,4 @@ require(["MemoryMatrixGame", "createjs"],
             memoryMatrixGame = new MemoryMatrixGame(loader, stage);
             console.log(memoryMatrixGame.getGameWidth());
         }
-
-
     });
