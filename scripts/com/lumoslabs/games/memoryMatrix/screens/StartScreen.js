@@ -1,21 +1,26 @@
 define(["createjs", "util"], function (createjs, util) {
 
-    function StartScreen(loader) {
-        var playButtonHelper;
-        var playButton;
-        var playButtonSpriteSheet;
+    function StartScreen(loader, startButtonEventListener, helpButtonEventListener) {
+
+//        public var helpButton:SimpleButton;
+//        public var startButton:SimpleButton;
+//        protected var mBackgroundAnim:BackgroundAnimation;
+//        public var mcBackground:MovieClip;
+
+        this.helpButtonEventListener = helpButtonEventListener;
+        this.startButtonEventListener = startButtonEventListener;
         this.loader = loader;
-        //TODO: maybe it is not optimal to call after var declarations?
         createjs.Container.call(this);
         this.init();
     }
-
     util.inherits(StartScreen, createjs.Container);
+
     StartScreen.prototype.init = function () {
 
-        this.playButtonSpriteSheet = new createjs.SpriteSheet({
-            //images: ["assets/images/playButton.png"],
-            images: [this.loader.getResult("playButtonImage")],
+        //TODO: button creation should be outsourced !
+        var startButtonSpriteSheet = new createjs.SpriteSheet({
+            //images: ["assets/images/startButton.png"],
+            images: [this.loader.getResult("startButtonSS")],
             frames: {
                 height: 42,
                 width: 114,
@@ -24,14 +29,29 @@ define(["createjs", "util"], function (createjs, util) {
                 count: 4},
             animations: {up: 0, over: 1, down: 2, hit: 3}
         });
-        this.playButton = new createjs.BitmapAnimation(this.playButtonSpriteSheet);
-        this.playButton.x = 422;
-        this.playButton.y = 393;
-        this.playButton.addEventListener("mousedown", function () {
-            console.log("fakk");
+        this.startButton = new createjs.BitmapAnimation(startButtonSpriteSheet);
+        this.startButton.x = 422;
+        this.startButton.y = 393;
+        this.startButton.addEventListener("mousedown", this.startButtonEventListener);
+        var startButtonHelper = new createjs.ButtonHelper(this.startButton, "up", "over", "down");
+        this.addChild(this.startButton);
+
+        var helpButtonSpriteSheet = new createjs.SpriteSheet({
+            images: [this.loader.getResult("helpButtonSS")],
+            frames: {
+                height: 47,
+                width: 170,
+                regX: 0,
+                regY: 0,
+                count: 4},
+            animations: {up: 0, over: 1, down: 2, hit: 3}
         });
-        this.playButtonHelper = new createjs.ButtonHelper(this.playButton, "up", "over", "down");
-        this.addChild(this.playButton);
+        this.helpButton = new createjs.BitmapAnimation(helpButtonSpriteSheet);
+        this.helpButton.x = 247;
+        this.helpButton.y = 393;
+        this.helpButton.addEventListener("mousedown", this.helpButtonEventListener);
+        var helpButtonHelper = new createjs.ButtonHelper(this.helpButton, "up", "over", "down");
+        this.addChild(this.helpButton);
     };
 
     return StartScreen

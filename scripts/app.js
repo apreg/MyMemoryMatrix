@@ -28,7 +28,8 @@ require(["MemoryMatrixGame", "createjs", "util"],
 
         var loader;
         var manifest = [
-            {src: "/images/playButton.png", id: "playButtonImage"}
+            {src: "/images/startButtonSS.png", id: "startButtonSS"},
+            {src:"/images/helpButtonSS.png", id:"helpButtonSS"},
         ];
         loader = new createjs.LoadQueue(false);
         loader.addEventListener("complete", handleComplete);

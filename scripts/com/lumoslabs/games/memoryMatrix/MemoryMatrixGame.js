@@ -24,8 +24,8 @@ define(["createjs", "StartScreen", "HelpScreen"], function (createjs, StartScree
     MemoryMatrixGame.prototype.initGame = function () {
         this.gameWidth = this.stage.canvas.width;
         this.gameHeight = this.stage.canvas.height;
-        this.startScreen = new StartScreen(this.loader, this.helpClick, this.startClick);
-        this.helpScreen = new HelpScreen(this.loader);
+        this.startScreen = new StartScreen(this.loader, this.startClick.bind(this), this.helpClick.bind(this));
+        this.helpScreen = new HelpScreen(this.loader, this.startClick.bind(this));
 
         createjs.Ticker.addEventListener("tick", this.stage);
         createjs.Ticker.setFPS(60);
@@ -35,13 +35,11 @@ define(["createjs", "StartScreen", "HelpScreen"], function (createjs, StartScree
 
 
     MemoryMatrixGame.prototype.helpClick = function (event) {
-        help();
-        return;
+        this.help();
     };
 
     MemoryMatrixGame.prototype.startClick = function (event) {
-        play();
-        return;
+        this.play();
     };
 
     MemoryMatrixGame.prototype.play = function () {
