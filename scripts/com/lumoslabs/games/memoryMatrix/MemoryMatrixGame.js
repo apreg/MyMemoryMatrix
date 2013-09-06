@@ -1,4 +1,4 @@
-define(["createjs", "StartScreen", "HelpScreen"], function (createjs, StartScreen, HelpScreen) {
+define(["createjs", "StartScreen", "HelpScreen", "Display"], function (createjs, StartScreen, HelpScreen, Display) {
     "use strict";
     function MemoryMatrixGame(loader, stage) {
         Object.defineProperties(this, {
@@ -9,6 +9,7 @@ define(["createjs", "StartScreen", "HelpScreen"], function (createjs, StartScree
             startScreen: {enumerable: true, configurable: false, writable: true},
             helpScreen: {enumerable: true, configurable: false, writable: true},
             playScreen: {enumerable: true, configurable: false, writable: true},
+            endScreen: {enumerable: true, configurable: false, writable: true},
             soundEffects: {enumerable: true, configurable: false}
 
         });
@@ -51,7 +52,7 @@ define(["createjs", "StartScreen", "HelpScreen"], function (createjs, StartScree
         //super.help();
         //sounds.stopAll();
         //TweenMax.killAll();
-        //Display.removeIfChildren(parentDisObjCon, startScreen, helpScreen, playScreen, endScreen);
+        Display.removeIfChildren(this.stage, this.startScreen, this.helpScreen, this.playScreen, this.endScreen);
         this.stage.addChild(this.helpScreen);
         //helpScreen.startAnimation();
         return;

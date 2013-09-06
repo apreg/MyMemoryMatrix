@@ -16,16 +16,18 @@ define(["createjs", "util"], function (createjs, util) {
     util.inherits(StartScreen, createjs.Container);
 
     StartScreen.prototype.init = function () {
-
+        this.background =  new createjs.Bitmap(this.loader.getResult("background"));
+        this.addChild(this.background);
         //TODO: button creation should be outsourced !
+        //TODO: stretch the buttons somehow
         var startButtonSpriteSheet = new createjs.SpriteSheet({
             //images: ["assets/images/startButton.png"],
             images: [this.loader.getResult("startButtonSS")],
             frames: {
                 height: 42,
                 width: 114,
-                regX: 0,
-                regY: 0,
+                regX: 56,
+                regY: 21,
                 count: 4},
             animations: {up: 0, over: 1, down: 2, hit: 3}
         });
@@ -41,17 +43,18 @@ define(["createjs", "util"], function (createjs, util) {
             frames: {
                 height: 47,
                 width: 170,
-                regX: 0,
-                regY: 0,
+                regX: 85,
+                regY: 24,
                 count: 4},
             animations: {up: 0, over: 1, down: 2, hit: 3}
         });
         this.helpButton = new createjs.BitmapAnimation(helpButtonSpriteSheet);
+        this.addChild(this.helpButton);
         this.helpButton.x = 247;
         this.helpButton.y = 393;
         this.helpButton.addEventListener("mousedown", this.helpButtonEventListener);
         var helpButtonHelper = new createjs.ButtonHelper(this.helpButton, "up", "over", "down");
-        this.addChild(this.helpButton);
+
     };
 
     return StartScreen
