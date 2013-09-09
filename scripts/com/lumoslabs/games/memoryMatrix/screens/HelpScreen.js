@@ -1,4 +1,4 @@
-define(["createjs", "util"], function (createjs, util) {
+define(["createjs", "util", "Library"], function (createjs, util, lib) {
 
     function HelpScreen(loader, stage) {
         createjs.Container.call(this);
@@ -7,11 +7,9 @@ define(["createjs", "util"], function (createjs, util) {
     util.inherits(HelpScreen, createjs.Container);
 
     HelpScreen.prototype.init = function () {
-        var text = new createjs.Text("A pattern will appear on the screen. Repeat the pattern by clicking on the correct tiles.", "20px Arial", "#ff7700");
-        text.x = 100;
-        text.y = 100;
-        text.textBaseline = "alphabetic";
-        this.addChild(text);
+        this.animation = new lib.sprite92();
+        this.animation.setTransform(20.4, 70.1);
+        this.addChild(this.animation);
     };
 
     return HelpScreen;

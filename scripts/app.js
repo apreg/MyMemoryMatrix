@@ -13,7 +13,8 @@ requirejs.config({
         //loader: "com/lumoslabs/utils/Loader",
         StartScreen: "com/lumoslabs/games/memoryMatrix/screens/StartScreen",
         HelpScreen: "com/lumoslabs/games/memoryMatrix/screens/HelpScreen",
-        Display: "com/lumoslabs/utils/Display"
+        Display: "com/lumoslabs/utils/Display",
+        Library: "com/lumoslabs/utils/Library"
         //movieClip: "libs/movieclip-0.6.1.min"
     },
     shim: {
@@ -31,7 +32,7 @@ require(["MemoryMatrixGame", "createjs", "util"],
         var manifest = [
             {src: "/images/startButtonSS.png", id: "startButtonSS"},
             {src:"/images/helpButtonSS.png", id:"helpButtonSS"},
-            {src:"/images/background.png", id:"background"},
+            {src:"/images/background.png", id:"background"}
         ];
         loader = new createjs.LoadQueue(false);
         loader.addEventListener("complete", handleComplete);
