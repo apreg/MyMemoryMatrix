@@ -29,7 +29,7 @@ define(["createjs", "StartScreen", "HelpScreen", "Display"], function (createjs,
         this.helpScreen = new HelpScreen(this.loader, this.startClick.bind(this));
 
         createjs.Ticker.addEventListener("tick", this.stage);
-        createjs.Ticker.setFPS(60);
+        createjs.Ticker.setFPS(30);
         createjs.Ticker.addListener(this.stage, false);
         this.start();
     };

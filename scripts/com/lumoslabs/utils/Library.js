@@ -2,7 +2,7 @@ define(["createjs", "util"], function Library(createjs, util) {
     var p;
 
     /*
-    Library.mousePointer = (function () {
+     Library.shape87 = (function () {
      util.inherits(MousePointer, createjs.Container);
      function MousePointer() {
      createjs.Container.call(this);
@@ -17,32 +17,14 @@ define(["createjs", "util"], function Library(createjs, util) {
      this.addChild(this.shape_1, this.shape);
 
      }
+
      return MousePointer;
      })();
      */
-      /*
+
     //mouse pointer
-    Library.mousePointer = function () {
-        createjs.Container.call(this);
-        //this.initialize();
-
-        // Layer 1
-        this.shape = new createjs.Shape();
-        this.shape.graphics.f().s("#333333").ss(1, 0, 0, 3, true).p("Ag0BLQgMAHgCgOIAAitICBBwQAKAMgNAFIguAHQAHAdAYAbQAEAJgJAEIgYALQgIAEgEgJQgOgegHgdg");
-        this.shape.setTransform(6.7, 10.7);
-
-        this.shape_1 = new createjs.Shape();
-        this.shape_1.graphics.rf(["#FFFFFF", "#A6A6A6"], [0.471, 1], -5.5, -1.8, 0, -5.5, -1.8, 19.9).s().p("AAEBnQgOgegHgdIgjAcQgMAHgCgOIAAitICBBwQAKAMgNAFIguAHQAHAdAYAbQAEAJgJAEIgYALIgFABQgFAAgCgGg");
-        this.shape_1.setTransform(6.7, 11);
-
-        this.addChild(this.shape_1, this.shape);
-    };
-    util.inherits( Library.mousePointer, createjs.Container);
-    //Library.mousePointer.prototype = p = new createjs.Container();
-    //p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
-    */
-
     (Library.shape87 = function () {
+        //createjs.Container.call(this);
         this.initialize();
 
         // Layer 1
@@ -57,22 +39,63 @@ define(["createjs", "util"], function Library(createjs, util) {
         this.addChild(this.shape_1, this.shape);
     }).prototype = p = new createjs.Container();
     p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
+    //util.inherits( Library.mousePointer, createjs.Container);
 
-    (Library.sprite88 = function () {
-        this.initialize();
 
+    (Library.shape87a = function () {
         // Layer 1
-        this.instance = new Library.shape87("synched", 0);
+        //this.initialize();
+        var g = this.graphics;
+        g.moveTo(1.9, 19.4);
+        g.bezierCurveTo(1.1, 19.8, 0.6, 19.6, 0.5, 18.6);
+        g.lineTo(0.5, 1.1);
+        g.lineTo(13.5, 12.6);
+        g.bezierCurveTo(14.2, 13.3, 14.1, 13.9, 13.3, 14.2);
+        g.lineTo(8.6, 14.9);
+        g.bezierCurveTo(9.1, 16.8, 10.2, 18.7, 11.8, 20.6);
+        g.bezierCurveTo(12.0, 21.2, 11.9, 21.6, 11.3, 21.9);
+        g.lineTo(8.9, 22.9);
+        g.bezierCurveTo(8.3, 23.2, 7.9, 23.0, 7.7, 22.4);
+        g.bezierCurveTo(6.6, 20.4, 5.8, 18.5, 5.4, 16.6);
+        g.lineTo(1.9, 19.4);
+        g.beginRadialGradientFill(["rgb(255, 255, 255)", "rgb(165, 165, 165)"], [0.47, 1.00], 1.6, 10.2, 0.0, 1.6, 10.2, 19.9);
 
-        this.addChild(this.instance);
-    }).prototype = p = new createjs.Container();
+        //contour line
+        g.setStrokeStyle(1, 0, 0, 3, true).beginStroke("#333333");
+        g.moveTo(1.9, 19.4);
+        g.bezierCurveTo(1.1, 19.8, 0.6, 19.6, 0.5, 18.6);
+        g.lineTo(0.5, 1.1);
+        g.lineTo(13.5, 12.6);
+        g.bezierCurveTo(14.2, 13.3, 14.1, 13.9, 13.3, 14.2);
+        g.lineTo(8.6, 14.9);
+        g.bezierCurveTo(9.1, 16.8, 10.2, 18.7, 11.8, 20.6);
+        g.bezierCurveTo(12.0, 21.2, 11.9, 21.6, 11.3, 21.9);
+        g.lineTo(8.9, 22.9);
+        g.bezierCurveTo(8.3, 23.2, 7.9, 23.0, 7.7, 22.4);
+        g.bezierCurveTo(6.6, 20.4, 5.8, 18.5, 5.4, 16.6);
+        g.lineTo(1.9, 19.4);
+        //g.endStroke();
+
+    }).prototype = p = new createjs.Shape();
     p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
+
+//useless
+//    (Library.sprite88 = function () {
+//        this.initialize();
+//
+//        // Layer 1
+//        //mouse pointer
+//        this.instance = new Library.shape87("synched", 0);
+//
+//        this.addChild(this.instance);
+//    }).prototype = p = new createjs.Container();
+//    p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
 
     (Library.sprite92 = function (mode, startPosition, loop) {
         this.initialize(mode, startPosition, loop, {});
 
         // Layer 28
-        this.instance = new Library.sprite88();
+        this.instance = new Library.shape87();
         this.instance.setTransform(286.8, 94);
         this.instance.alpha = 0;
         this.instance._off = true;
@@ -320,7 +343,7 @@ define(["createjs", "util"], function Library(createjs, util) {
         this.addChild(this.shape_1, this.shape);
     }).prototype = p = new createjs.Container();
     p.nominalBounds = new createjs.Rectangle(0, 0, 332.9, 242);
-    
+
     return Library;
 })
 ;
