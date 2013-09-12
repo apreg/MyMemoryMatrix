@@ -79,6 +79,22 @@ define(["createjs", "util"], function Library(createjs, util) {
     }).prototype = p = new createjs.Shape();
     p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
 
+    (Library.shape90 = function () {
+        this.initialize();
+
+        // Layer 1
+        this.shape = new createjs.Shape();
+        this.shape.graphics.f().s("#333333").ss(1, 0, 0, 3, true).p("AAfgoIAAAQAA9gdQACAJgBAMAAfgoQAJgNANAKQAHAGABAIQANgCAHAHQAHAGgHAsIgLA2QgDAIACAgIhqAAQACgDgUgyIgbhAQgGgLAQACQAQABAMAQIAAhoQAAgLAGgIIAHgFIAJgBIAJADQAFADABAGIACAoIAAANIAAAcAgFg1QAGgJAIAAQARAAAEANIABAJ");
+        this.shape.setTransform(8.5, 12);
+
+        this.shape_1 = new createjs.Shape();
+        this.shape_1.graphics.rf(["#FFFFFF", "#A6A6A6"], [0.471, 1], 0.1, -3.8, 0, 0.1, -3.8, 27).s().p("AglB4QACgEgUgxIgbhAQgGgMAQACQAQACAMAQIAAhoQAAgLAGgIIAHgGIAJgBIAJADQAFAEABAFIACApIAAAMIAAAcIAAgcQAGgIAIAAQARAAAEANIABAJIAAAQIAAgQQAJgNANAJQAHAHABAIQANgCAHAGQAHAGgHAtIgLA2QgDAHACAhgAA+gJIAAgJIgBgLIABALIAAAJg");
+        this.shape_1.setTransform(8.5, 12);
+
+        this.addChild(this.shape_1, this.shape);
+    }).prototype = p = new createjs.Container();
+    p.nominalBounds = new createjs.Rectangle(0, 0, 17, 24);
+
 //useless
 //    (Library.sprite88 = function () {
 //        this.initialize();
@@ -91,6 +107,16 @@ define(["createjs", "util"], function Library(createjs, util) {
 //    }).prototype = p = new createjs.Container();
 //    p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
 
+      (Library.sprite91 = function () {
+        this.initialize();
+
+        // Layer 1
+        this.instance = new Library.shape90("synched", 0);
+
+        this.addChild(this.instance);
+    }).prototype = p = new createjs.Container();
+    p.nominalBounds = new createjs.Rectangle(0, 0, 17, 24);
+
     (Library.sprite92 = function (mode, startPosition, loop) {
         this.initialize(mode, startPosition, loop, {});
 
@@ -102,8 +128,20 @@ define(["createjs", "util"], function Library(createjs, util) {
 
         this.timeline.addTween(createjs.Tween.get(this.instance).wait(49).to({_off: false}, 0).to({alpha: 0.934}, 14).wait(1).to({alpha: 1}, 0).wait(65).to({x: 215.8, y: 71}, 10).to({_off: true}, 1).wait(76).to({x: 119.8, y: 169.6, _off: false}, 0).wait(15).to({alpha: 0.145}, 6).wait(1).to({alpha: 0}, 0).wait(25));
 
+        // Layer 26 copy
+        this.instance_1 = new Library.sprite91();
+        this.instance_1.setTransform(210,70);
+        this.instance_1._off = true;
+
+        this.timeline.addTween(createjs.Tween.get(this.instance_1).wait(140).to({_off:false},0).wait(22).to({x:165.9,y:156.4},9).wait(1).to({x:161,y:166},0).wait(23).to({x:118.7,y:167.8},9).wait(1).to({x:114,y:168},0).to({_off:true},11).wait(47));
+
         // Layer 26
-        /* Layers with classic tweens must contain only a single symbol instance. */
+        this.instance_2 = new Library.ActiveTile();
+        this.instance_2.setTransform(115.9,146,0.02,1);
+        this.instance_2._off = true;
+
+        this.timeline.addTween(createjs.Tween.get(this.instance_2).wait(71).to({_off:false},0).to({scaleX:0.76,x:97.5},3).wait(1).to({scaleX:1,x:91.4},0).wait(30).to({scaleX:0.02,x:115.9},4).to({_off:true},1).wait(106).to({_off:false},0).to({scaleX:0.8,x:96.3},4).wait(1).to({scaleX:1,x:91.4},0).wait(30).to({scaleX:0.02,x:115.9},5).to({_off:true},1).wait(6));
+
 
         // Layer 24
         this.instance_1 = new Library.ActiveTile();
