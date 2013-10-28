@@ -1,6 +1,6 @@
-define(["createjs", "util"], function Library(createjs, util) {
+define(["createjs", "util"], function Library(createjs, util, loader) {
     var p;
-
+    Library.loader;
     /*
      Library.shape87 = (function () {
      util.inherits(MousePointer, createjs.Container);
@@ -79,6 +79,50 @@ define(["createjs", "util"], function Library(createjs, util) {
     }).prototype = p = new createjs.Shape();
     p.nominalBounds = new createjs.Rectangle(0, 0, 13.5, 21.9);
 
+    (Library.shape8 = function () {
+        var g = this.graphics;
+        g.beginLinearGradientFill(["rgb(193, 228, 224)", "rgb(235, 246, 244)"], [0.00, 1.00], 0, 0, 640, 480);
+        g.moveTo(640.0, 0.0);
+        g.lineTo(640.0, 480.0);
+        g.lineTo(0.0, 480.0);
+        g.lineTo(0.0, 0.0);
+        g.lineTo(640.0, 0.0);
+     }).prototype = p = new createjs.Shape();
+    p.nominalBounds = new createjs.Rectangle(0, 0, 640, 480);
+
+    (Library.start_btn = function () {
+        var startButtonSpriteSheet = new createjs.SpriteSheet({
+            //images: ["assets/images/startButton.png"],
+            images: [Library.loader.getResult("startButtonSS")],
+            frames: {
+                height: 42,
+                width: 114,
+                regX: 56,
+                regY: 21,
+                count: 4},
+            animations: {up: 0, over: 1, down: 2, hit: 3}
+        });
+        this.initialize(startButtonSpriteSheet);
+        var startButtonHelper = new createjs.ButtonHelper(this, "up", "over", "down");
+    }).prototype = p = new createjs.BitmapAnimation();
+    p.nominalBounds = new createjs.Rectangle(-56.2, -20.9, 112.6, 52);
+
+    (Library.howto_btn = function () {
+        var helpButtonSpriteSheet = new createjs.SpriteSheet({
+            images: [Library.loader.getResult("helpButtonSS")],
+            frames: {
+                height: 47,
+                width: 170,
+                regX: 85,
+                regY: 24,
+                count: 4},
+            animations: {up: 0, over: 1, down: 2, hit: 3}
+        });
+        this.initialize(helpButtonSpriteSheet);
+        var helpButtonHelper = new createjs.ButtonHelper(this, "up", "over", "down");
+    }).prototype = p = new createjs.BitmapAnimation();
+    p.nominalBounds = new createjs.Rectangle(-84.3, -20.9, 168.8, 52.5);
+
     (Library.shape90 = function () {
         this.initialize();
 
@@ -95,7 +139,7 @@ define(["createjs", "util"], function Library(createjs, util) {
     }).prototype = p = new createjs.Container();
     p.nominalBounds = new createjs.Rectangle(0, 0, 17, 24);
 
-//useless
+//needless
 //    (Library.sprite88 = function () {
 //        this.initialize();
 //
@@ -381,6 +425,47 @@ define(["createjs", "util"], function Library(createjs, util) {
         this.addChild(this.shape_1, this.shape);
     }).prototype = p = new createjs.Container();
     p.nominalBounds = new createjs.Rectangle(0, 0, 332.9, 242);
+
+    (Library.text74 = function () {
+        this.initialize();
+
+        // Layer 1
+        this.text = new createjs.Text("Tiles:", "18px Trebuchet MS");
+        this.text.lineHeight = 18;
+        this.text.lineWidth = 61;
+        this.text.setTransform(49.9, -3.7);
+
+        this.addChild(this.text);
+    }).prototype = p = new createjs.Container();
+    p.nominalBounds = new createjs.Rectangle(49.9, -3.7, 65.3, 45.8);
+
+    (Library.score_mc = function () {
+        this.initialize();
+
+        // Layer 5
+        this.instance = new Library.sprite73();
+        this.instance.setTransform(24.4, 7.7);
+
+        // Layer 4
+        this.instance_1 = new Library.shape71("synched", 0);
+        this.instance_1.setTransform(-251.8, -0.5);
+
+        // Layer 3
+        this.myScore = new createjs.Text("9000", "bold 18px Trebuchet MS", "#990A37");
+        this.myScore.lineHeight = 18;
+        this.myScore.lineWidth = 77;
+        this.myScore.setTransform(97.5, 0.1);
+
+        // Layer 2
+        this.instance_2 = new Library.text118("synched", 0);
+        this.instance_2.setTransform(13.2, 2.7);
+
+        // Layer 1
+        this.instance_3 = new Library.shape117("synched", 0);
+
+        this.addChild(this.instance_3, this.instance_2, this.myScore, this.instance_1, this.instance);
+    }).prototype = p = new createjs.Container();
+    p.nominalBounds = new createjs.Rectangle(0, -1.1, 178.2, 45.8);
 
     return Library;
 })

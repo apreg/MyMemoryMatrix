@@ -1,6 +1,6 @@
-var lib, images, createjs;
-(function (lib, img, cjs) {
-
+define(["createjs", "util"], function lib(cjs, util) {
+    lib.loader;
+    lib.img = {};
     var p; // shortcut to reference prototypes
 
 // stage content:
@@ -13,19 +13,19 @@ var lib, images, createjs;
 
 // symbols:
     (lib.image12 = function () {
-        this.initialize(img.image12);
+        this.initialize(lib.loader.getResult("image12"));
     }).prototype = p = new cjs.Bitmap();
     p.nominalBounds = new cjs.Rectangle(0, 0, 642, 482);
 
 
     (lib.image44 = function () {
-        this.initialize(img.image44);
+        this.initialize(lib.loader.getResult("image44"));
     }).prototype = p = new cjs.Bitmap();
     p.nominalBounds = new cjs.Rectangle(0, 0, 536, 256);
 
 
     (lib.image48 = function () {
-        this.initialize(img.image48);
+        this.initialize(lib.loader.getResult("image48"));
     }).prototype = p = new cjs.Bitmap();
     p.nominalBounds = new cjs.Rectangle(0, 0, 534, 266);
 
@@ -852,7 +852,7 @@ var lib, images, createjs;
 
         // Layer 1
         this.shape = new cjs.Shape();
-        this.shape.graphics.bf(img.image48).s().p("EgptAUyMAAAgpjMBTaAAAMAAAApjg");
+        this.shape.graphics.bf(lib.loader.getResult("image48")).s().p("EgptAUyMAAAgpjMBTaAAAMAAAApjg");
         this.shape.setTransform(267, 133);
 
         this.addChild(this.shape);
@@ -865,7 +865,7 @@ var lib, images, createjs;
 
         // Layer 1
         this.shape = new cjs.Shape();
-        this.shape.graphics.bf(img.image44).s().p("Egp3AT/MAAAgn+MBTvAAAMAAAAn+g");
+        this.shape.graphics.bf(lib.loader.getResult("image44")).s().p("Egp3AT/MAAAgn+MBTvAAAMAAAAn+g");
         this.shape.setTransform(268, 128);
 
         this.addChild(this.shape);
@@ -1090,7 +1090,7 @@ var lib, images, createjs;
 
         // Layer 1
         this.shape = new cjs.Shape();
-        this.shape.graphics.bf(img.image12).s().p("EgyJAlqMAAAhLTMBkTAAAMAAABLTg");
+        this.shape.graphics.bf(lib.loader.getResult("image12")).s().p("EgyJAlqMAAAhLTMBkTAAAMAAABLTg");
 
         this.addChild(this.shape);
     }).prototype = p = new cjs.Container();
@@ -1443,10 +1443,10 @@ var lib, images, createjs;
         this.timeline.addTween(cjs.Tween.get({}).to({state: [
             {t: this.instance}
         ]}).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: []}, 1).wait(1));
+                {t: this.instance_1}
+            ]}, 1).to({state: [
+                {t: this.instance_1}
+            ]}, 1).to({state: []}, 1).wait(1));
 
         // Layer 2
         this.instance_2 = new lib.text144Up("synched", 0);
@@ -1457,10 +1457,10 @@ var lib, images, createjs;
         this.timeline.addTween(cjs.Tween.get({}).to({state: [
             {t: this.instance_2}
         ]}).to({state: [
-            {t: this.instance_3}
-        ]}, 1).to({state: [
-            {t: this.instance_3}
-        ]}, 1).to({state: []}, 1).wait(1));
+                {t: this.instance_3}
+            ]}, 1).to({state: [
+                {t: this.instance_3}
+            ]}, 1).to({state: []}, 1).wait(1));
 
         // Layer 1
         this.instance_4 = new lib.shape143Up("synched", 0);
@@ -1470,8 +1470,8 @@ var lib, images, createjs;
         this.timeline.addTween(cjs.Tween.get({}).to({state: [
             {t: this.instance_4}
         ]}).to({state: []}, 1).to({state: []}, 1).to({state: [
-            {t: this.instance_5}
-        ]}, 1).wait(1));
+                {t: this.instance_5}
+            ]}, 1).wait(1));
 
     }).prototype = p = new cjs.MovieClip();
     p.nominalBounds = new cjs.Rectangle(-80.2, -20.9, 160.6, 52);
@@ -1494,10 +1494,10 @@ var lib, images, createjs;
         this.timeline.addTween(cjs.Tween.get({}).to({state: [
             {t: this.instance_1}
         ]}).to({state: [
-            {t: this.instance_2}
-        ]}, 1).to({state: [
-            {t: this.instance_2}
-        ]}, 1).to({state: []}, 1).wait(1));
+                {t: this.instance_2}
+            ]}, 1).to({state: [
+                {t: this.instance_2}
+            ]}, 1).to({state: []}, 1).wait(1));
 
         // Layer 1
         this.instance_3 = new lib.shape105Hit("synched", 0);
@@ -1556,87 +1556,38 @@ var lib, images, createjs;
     }).prototype = p = new cjs.MovieClip();
     p.nominalBounds = new cjs.Rectangle(-66.4, -18.8, 156.6, 62);
 
-
-    (lib.howto_btn = function (mode, startPosition, loop) {
-        this.initialize(mode, startPosition, loop, {});
-
-        // Layer 4
-        this.instance = new lib.shape27Up("synched", 0);
-
-        this.instance_1 = new lib.shape29OverDown("synched", 0);
-
-        this.timeline.addTween(cjs.Tween.get({}).to({state: [
-            {t: this.instance}
-        ]}).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: []}, 1).wait(1));
-
-        // Layer 2
-        this.instance_2 = new lib.text26Up("synched", 0);
-        this.instance_2.setTransform(-84.3, -10.4);
-
-        this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1).to({startPosition: 0}, 0).wait(1).to({startPosition: 0}, 0).to({_off: true}, 1).wait(1));
-
-        // Layer 1
-        this.instance_3 = new lib.shape25Up("synched", 0);
-
-        this.instance_4 = new lib.shape28OverDown("synched", 0);
-
-        this.timeline.addTween(cjs.Tween.get({}).to({state: [
-            {t: this.instance_3}
-        ]}).to({state: [
-            {t: this.instance_4}
-        ]}, 1).to({state: [
-            {t: this.instance_4}
-        ]}, 1).to({state: [
-            {t: this.instance_3}
-        ]}, 1).wait(1));
-
-    }).prototype = p = new cjs.MovieClip();
-    p.nominalBounds = new cjs.Rectangle(-84.3, -20.9, 168.8, 52.5);
-
-
-    (lib.start_btn = function (mode, startPosition, loop) {
-        this.initialize(mode, startPosition, loop, {});
-
-        // Layer 3
-        this.instance = new lib.shape21Up("synched", 0);
-
-        this.instance_1 = new lib.shape23OverDown("synched", 0);
-
-        this.timeline.addTween(cjs.Tween.get({}).to({state: [
-            {t: this.instance}
-        ]}).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: [
-            {t: this.instance_1}
-        ]}, 1).to({state: []}, 1).wait(1));
-
-        // Layer 2
-        this.instance_2 = new lib.text20Up("synched", 0);
-        this.instance_2.setTransform(-53.6, -10.9);
-
-        this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1).to({startPosition: 0}, 0).wait(1).to({startPosition: 0}, 0).to({_off: true}, 1).wait(1));
-
-        // Layer 1
-        this.instance_3 = new lib.shape18Up("synched", 0);
-
-        this.instance_4 = new lib.shape22OverDown("synched", 0);
-
-        this.timeline.addTween(cjs.Tween.get({}).to({state: [
-            {t: this.instance_3}
-        ]}).to({state: [
-            {t: this.instance_4}
-        ]}, 1).to({state: [
-            {t: this.instance_4}
-        ]}, 1).to({state: [
-            {t: this.instance_4}
-        ]}, 1).wait(1));
-
-    }).prototype = p = new cjs.MovieClip();
+    (lib.start_btn = function () {
+        var startButtonSpriteSheet = new cjs.SpriteSheet({
+            //images: ["assets/images/startButton.png"],
+            images: [lib.loader.getResult("startButtonSS")],
+            frames: {
+                height: 42,
+                width: 114,
+                regX: 56,
+                regY: 21,
+                count: 4},
+            animations: {up: 0, over: 1, down: 2, hit: 3}
+        });
+        this.initialize(startButtonSpriteSheet);
+        var startButtonHelper = new cjs.ButtonHelper(this, "up", "over", "down");
+    }).prototype = p = new cjs.BitmapAnimation();
     p.nominalBounds = new cjs.Rectangle(-56.2, -20.9, 112.6, 52);
+
+    (lib.howto_btn = function () {
+        var helpButtonSpriteSheet = new cjs.SpriteSheet({
+            images: [lib.loader.getResult("helpButtonSS")],
+            frames: {
+                height: 47,
+                width: 170,
+                regX: 85,
+                regY: 24,
+                count: 4},
+            animations: {up: 0, over: 1, down: 2, hit: 3}
+        });
+        this.initialize(helpButtonSpriteSheet);
+        var helpButtonHelper = new cjs.ButtonHelper(this, "up", "over", "down");
+    }).prototype = p = new cjs.BitmapAnimation();
+    p.nominalBounds = new cjs.Rectangle(-84.3, -20.9, 168.8, 52.5);
 
 
     (lib.comlumoslabsgamesmemoryMatrixBoard = function () {
@@ -1745,7 +1696,7 @@ var lib, images, createjs;
     }).prototype = p = new cjs.Container();
     p.nominalBounds = new cjs.Rectangle(-77.9, -33.9, 156, 75.2);
 
-
+     //sprite120
     (lib.score_mc = function () {
         this.initialize();
 
@@ -2300,7 +2251,7 @@ var lib, images, createjs;
     p.nominalBounds = new cjs.Rectangle(0.4, 0, 640, 480);
 
 
-    (lib.comlumoslabsgamesmemoryMatrixscreensStartScreen = function() {
+    (lib.comlumoslabsgamesmemoryMatrixscreensStartScreen = function () {
         alert("shi");
         this.initialize();
 
@@ -2341,4 +2292,5 @@ var lib, images, createjs;
     }).prototype = p = new cjs.Container();
     p.nominalBounds = new cjs.Rectangle(-1.9, -1.9, 730.3, 482);
 
-})(lib = lib || {}, images = images || {}, createjs = createjs || {});
+    return lib;
+});
