@@ -2,6 +2,7 @@
 module.exports = function(grunt) {
  
   // Load Grunt tasks declared in the package.json file
+  //require('path');
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
  
   // Configure Grunt 
@@ -14,7 +15,7 @@ module.exports = function(grunt) {
         options: {
           port: 9000,
           hostname: "0.0.0.0",
-          bases: ['.'],
+		  bases: ['.'],
           livereload: true
         }
       }
