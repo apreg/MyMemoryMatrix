@@ -3,4 +3,6 @@ You can run it easily by putting it onto a webserver or if you have Node.js inst
 
 ```npm install```
 
+```npm install -g grunt-cli```
+
 ```grunt server```.
