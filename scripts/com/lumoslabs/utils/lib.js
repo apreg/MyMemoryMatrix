@@ -38,11 +38,11 @@ define(["createjs", "util"], function lib(cjs, util) {
         this.tf.textAlign = "center";
         this.tf.lineHeight = 18;
         this.tf.lineWidth = 600;
-        this.tf.setTransform(21.9, -13.4);
+        this.tf.setTransform(323, 427.4);
 
         this.addChild(this.tf);
     }).prototype = p = new cjs.Container();
-    p.nominalBounds = new cjs.Rectangle(-277.9, -13.4, 603.9, 27);
+    p.nominalBounds = new cjs.Rectangle(323, 427.4, 603.9, 27);
 
 
     (lib.sprite9 = function () {

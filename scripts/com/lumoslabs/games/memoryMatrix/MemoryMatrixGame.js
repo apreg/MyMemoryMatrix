@@ -336,7 +336,7 @@ define(["createjs", "TweenMax", "StartScreen", "HelpScreen", "PlayScreen", "EndS
     };
 
     MemoryMatrixGame.prototype.endGame = function () {
-        //TweenMax.killAll();
+        TweenMax.killAll(false, true, true, true);
         this.stage.removeChild(this.playScreen);
         this.endScreen.setScoreText(this.score);
         if (this.maxMarkedTiles == 1) {

@@ -94,13 +94,12 @@ define(["createjs", "TweenMax", "util", "Library", "Tile", "Random"], function (
         TweenMax.delayedCall(this.DIAGONAL_WAIT, this.showDiagonalTiles.bind(this), [param1, param2]);
     };
 
-
-    Board.prototype.flip = function (param1, param2, param3) {
+    Board.prototype.flip = function (markedTileCt, param2, param3) {
         if (this.rotation % 180 == 0) {
-            TweenMax.to(this, this.FLIP_TWEEN_TIME / 2, {scaleX: 0.1, ease: "Linear.easeNone", onComplete: this.flipFinish.bind(this), onCompleteParams: [param1, param2, param3]});
+            TweenMax.to(this, this.FLIP_TWEEN_TIME / 2, {scaleX: 0.1, ease: "Linear.easeNone", onComplete: this.flipFinish.bind(this), onCompleteParams: [markedTileCt, param2, param3]});
         }
         else {
-            TweenMax.to(this, this.FLIP_TWEEN_TIME / 2, {scaleY: 0.1, ease: "Linear.easeNone", onComplete: this.flipFinish.bind(this), onCompleteParams: [param1, param2, param3]});
+            TweenMax.to(this, this.FLIP_TWEEN_TIME / 2, {scaleY: 0.1, ease: "Linear.easeNone", onComplete: this.flipFinish.bind(this), onCompleteParams: [markedTileCt, param2, param3]});
         }
     };
 
