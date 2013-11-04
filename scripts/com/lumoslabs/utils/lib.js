@@ -1599,7 +1599,7 @@ define(["createjs", "util"], function lib(cjs, util) {
 
         // Layer 15
         this.topSide = new lib.BoardTopSide();
-        this.topSide.setTransform(0, -239.9);
+        this.topSide.setTransform(0, -240);
 
         // Layer 13
         this.rightSide = new lib.BoardLeftSide();
@@ -1607,11 +1607,11 @@ define(["createjs", "util"], function lib(cjs, util) {
 
         // Layer 11
         this.leftSide = new lib.BoardLeftSide();
-        this.leftSide.setTransform(-319.9, 0);
+        this.leftSide.setTransform(-320, 0);
 
         // Layer 9
         this.topRightCorner = new lib.BoardCorner();
-        this.topRightCorner.setTransform(320, -239.9, 1, 1, 90);
+        this.topRightCorner.setTransform(320, -240, 1, 1, 90);
 
         // Layer 7
         this.bottomRightCorner = new lib.BoardCorner();
@@ -1619,18 +1619,18 @@ define(["createjs", "util"], function lib(cjs, util) {
 
         // Layer 5
         this.bottomLeftCorner = new lib.BoardCorner();
-        this.bottomLeftCorner.setTransform(-319.9, 240, 1, 1, -89.9);
+        this.bottomLeftCorner.setTransform(-320, 240, 1, 1, -90);
 
         // Layer 3
         this.topLeftCorner = new lib.BoardCorner();
-        this.topLeftCorner.setTransform(-319.9, -239.9);
+        this.topLeftCorner.setTransform(-320, -240);
 
         // Layer 1
         this.center = new lib.BoardCenter();
 
         this.addChild(this.center, this.topLeftCorner, this.bottomLeftCorner, this.bottomRightCorner, this.topRightCorner, this.leftSide, this.rightSide, this.topSide, this.bottomSide);
     }).prototype = p = new cjs.Container();
-    p.nominalBounds = new cjs.Rectangle(-319.9, -239.9, 640, 480);
+    p.nominalBounds = new cjs.Rectangle(-320, -240, 640, 480);
 
 
     (lib.PerfectEndGameBox = function () {

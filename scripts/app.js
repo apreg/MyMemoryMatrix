@@ -50,6 +50,7 @@ require(["MemoryMatrixGame", "createjs", "util", "Library"],
             {src:"/sounds/Bell.mp3", id:"Bell"}
         ];
         loader = new createjs.LoadQueue(false);
+        createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin, createjs.WebAudioPlugin]);
         loader.installPlugin(createjs.Sound);
         loader.addEventListener("fileload", handleFileLoad);
         loader.addEventListener("complete", handleComplete);

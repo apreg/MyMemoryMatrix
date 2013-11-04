@@ -176,15 +176,15 @@ define(["createjs", "TweenMax", "util", "Library", "Tile", "Random"], function (
         }
     };
 
-    Board.prototype.showMarkedTiles = function (param1, param2, param3) {
+    Board.prototype.showMarkedTiles = function (isActive, param2, param3) {
         param2 = (typeof param2 === "undefined") ? null : param2;
         param3 = (typeof param3 === "undefined") ? null : param3;
 
-        this.markedTileArray[0].activate(param1, this.rotation, param2, param3);
-        var _loc_4 = 1;
-        while (_loc_4 < this.markedTileArray.length) {
-            this.markedTileArray[_loc_4].activate(param1, this.rotation);
-            _loc_4 = _loc_4 + 1;
+        this.markedTileArray[0].activate(isActive, this.rotation, param2, param3);
+        var i = 1;
+        while (i < this.markedTileArray.length) {
+            this.markedTileArray[i].activate(isActive, this.rotation);
+            i++;
         }
     };
 
@@ -263,40 +263,39 @@ define(["createjs", "TweenMax", "util", "Library", "Tile", "Random"], function (
     };
 
     Board.prototype.setupTiles = function (markedTilesCt, eventListener) {
-        var _loc_6 = null;
-        var _loc_8 = 0;
-        var _loc_3 = new Array();
-        var _loc_4 = 0;
-        while (_loc_4 < markedTilesCt) {
-            _loc_3.push(Random.otherIntBetween(1, this.columns * this.rows, _loc_3));
-            _loc_4 = _loc_4 + 1;
+        var tempTile = null;
+        var i = 0;
+        var vector = new Array();
+        while (i < markedTilesCt) {
+            vector.push(Random.otherIntBetween(1, this.columns * this.rows, vector));
+            i++;
         }
         this.tileMatrix = new Array();
         this.markedTileArray = new Array();
         this.tileParentSprite = new createjs.Container();
         this.addChild(this.tileParentSprite);
-        var _loc_5 = 1;
-        var _loc_7 = 0;
-        while (_loc_7 < this.columns) {
+        var x = 1;
+        var j = 0;
+        while (j < this.columns) {
 
-            this.tileMatrix[_loc_7] = new Array();
-            _loc_8 = 0;
-            while (_loc_8 < this.rows) {
+            this.tileMatrix[j] = new Array();
+            i = 0;
+            while (i < this.rows) {
 
-                if (_loc_3.indexOf(_loc_5) >= 0) {
-                    _loc_6 = new Tile(_loc_7, _loc_8, this.columns, this.rows, true);
-                    this.markedTileArray.push(_loc_6);
+                if (vector.indexOf(x) >= 0) {
+                    tempTile = new Tile(j, i, this.columns, this.rows, true);
+                    this.markedTileArray.push(tempTile);
                 }
                 else {
-                    _loc_6 = new Tile(_loc_7, _loc_8, this.columns, this.rows, false);
+                    tempTile = new Tile(j, i, this.columns, this.rows, false);
                 }
-                this.tileMatrix[_loc_7][_loc_8] = _loc_6;
-                _loc_6.addEventListener("mousedown", eventListener);
-                this.tileParentSprite.addChild(_loc_6);
-                _loc_5 = _loc_5 + 1;
-                _loc_8 = _loc_8 + 1;
+                this.tileMatrix[j][i] = tempTile;
+                tempTile.addEventListener("mousedown", eventListener);
+                this.tileParentSprite.addChild(tempTile);
+                x++;
+                i++;
             }
-            _loc_7 = _loc_7 + 1;
+            j++;
         }
     };
 

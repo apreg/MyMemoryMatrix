@@ -74,6 +74,9 @@ define(["createjs", "TweenMax", "StartScreen", "HelpScreen", "PlayScreen", "EndS
         this.numTrials = 15;
         this.gameWidth = this.stage.canvas.width;  //TODO: maybe this dependency can cause problems
         this.gameHeight = this.stage.canvas.height;
+        /*By default, JavaScript methods do not maintain scope, so passing a method as a
+        * callback will result in the method getting called in the scope of the caller. Using bind or a createjs.proxy ensures that the
+        * method gets called in the correct scope.*/
         this.startScreen = new StartScreen(this.startClick.bind(this), this.helpClick.bind(this));
         this.helpScreen = new HelpScreen(this.startClick.bind(this));
         this.playScreen = new PlayScreen();
@@ -140,7 +143,7 @@ define(["createjs", "TweenMax", "StartScreen", "HelpScreen", "PlayScreen", "EndS
         if (this.playScreen.mcUserPrompt) {
             this.playScreen.mcUserPrompt.y = loc1;
         }
-        //sounds.playBoardFlipSound();
+        createjs.Sound.play("Paper11", createjs.Sound.INTERRUPT_ANY); //playBoardFlipSound();
     };
 
     MemoryMatrixGame.prototype.setupTiles = function () {

@@ -2,11 +2,12 @@ define(["createjs", "TweenMax", "util", "Library"], function (createjs, TweenMax
 
     //Tile.WIDTH = 50;
     //Tile.HEIGHT = 50;
+    Object.defineProperties(Tile, {
+        WIDTH: {enumerable: true, configurable: false, writable: false, value: 50},
+        HEIGHT: {enumerable: true, configurable: false, writable: false, value: 50}
+    });
+
     function Tile(columnIndex, rowIndex, columns, rows, isMarked) {
-        Object.defineProperties(Tile, {
-            WIDTH: {enumerable: true, configurable: false, writable: false, value: 50},
-            HEIGHT: {enumerable: true, configurable: false, writable: false, value: 50}
-        });
         Object.defineProperties(this, {
             ACTIVATE_TWEEN_TIME: {enumerable: true, configurable: false, writable: false, value: 0.2},
             SHAKE_TWEEN_TIME: {enumerable: true, configurable: false, writable: false, value: 0.4},
@@ -36,6 +37,7 @@ define(["createjs", "TweenMax", "util", "Library"], function (createjs, TweenMax
         });
         createjs.Container.call(this);
         this.init();
+
         this.tileMarked = isMarked;
         this.visible = false;
         this.buttonMode = true;
@@ -84,19 +86,19 @@ define(["createjs", "TweenMax", "util", "Library"], function (createjs, TweenMax
         }
     };
 
-    Tile.prototype.activate = function (param1, param2, param3, param4) {
-        param3 = (typeof param2 === "undefined") ? null : param3;
-        param4 = (typeof param3 === "undefined") ? null : param4;
+    Tile.prototype.activate = function (isActive, handleCompleteParam, handleComplete, handleCompleteParams) {
+        handleComplete = (typeof handleComplete === "undefined") ? null : handleComplete;
+        handleCompleteParams = (typeof handleCompleteParams === "undefined") ? null : handleCompleteParams;
         this.disableMouse();
-        this.tileActive = param1;
-        this.onComplete = param3;
-        this.onCompleteParamArray = param4;
-        if (param2 % 180 == 0) {
-            TweenMax.to(this, this.ACTIVATE_TWEEN_TIME / 2, {scaleX: 0.1, ease: "Linear.easeNone", onComplete: this.activateFinish.bind(this), onCompleteParams: [param2]});
-        }
-        else {
-            TweenMax.to(this, this.ACTIVATE_TWEEN_TIME / 2, {scaleY: 0.1, ease: "Linear.easeNone", onComplete: this.activateFinish.bind(this), onCompleteParams: [param2]});
-        }
+        this.tileActive = isActive;
+        this.onComplete = handleComplete;
+        this.onCompleteParamArray = handleCompleteParams;
+        //if (handleCompleteParam % 180 == 0) {
+            TweenMax.to(this, this.ACTIVATE_TWEEN_TIME / 2, {scaleX: 0.1, ease: "Linear.easeNone", onComplete: this.activateFinish.bind(this), onCompleteParams: [handleCompleteParam]});
+//        }
+//        else {
+//            TweenMax.to(this, this.ACTIVATE_TWEEN_TIME / 2, {scaleY: 0.1, ease: "Linear.easeNone", onComplete: this.activateFinish.bind(this), onCompleteParams: [handleCompleteParam]});
+//        }
     };
 
     Tile.prototype.shake = function () {
